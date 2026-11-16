@@ -15,8 +15,8 @@
     --green:#2E7D32;    /* rich vibrant green */
     --teal:#1C9DA5;     /* headlines */
     --red:#E53935;      /* price today / red buttons */
-    --text:#2D3748;
-    --muted:#64748B;
+    --text:#1E293B;
+    --muted:#475569;
     --radius:14px;
     --shadow:0 8px 24px rgba(0,0,0,.08);
     --shadow-lg:0 16px 36px rgba(0,0,0,.14);
@@ -35,7 +35,7 @@
   .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.22);filter:brightness(1.05)}
   .btn-green{background:linear-gradient(135deg, #43A047 0%, #2E7D32 100%)}
   .btn-red{background:linear-gradient(135deg, #E53935 0%, #C62828 100%)}
-  .btn-sub{font-size:.82rem;font-weight:600;opacity:.92;margin-top:4px;text-transform:none;letter-spacing:0}
+  .btn-sub{font-size:.88rem;font-weight:600;opacity:.95;margin-top:4px;text-transform:none;letter-spacing:0}
 
   /* ========== 1. HEADER ========== */
   header{padding:22px 0 8px;text-align:center}
@@ -43,14 +43,16 @@
   .logo-text{font-family:'Pacifico',cursive;font-size:2.1rem;color:var(--teal);display:none}
   .logo-text span{font-size:1.7rem}
 
-  /* ========== 2. URGENCY BAR ========== */
-  .urgency{text-align:center;padding:12px 0 6px}
-  .urgency h2{color:var(--orange);font-weight:800;font-size:clamp(1.15rem,4vw,1.65rem);letter-spacing:.3px}
-  .countdown{display:flex;justify-content:center;gap:10px;margin-top:10px}
-  .countdown .unit{background:#111;border-radius:10px;padding:8px 16px;min-width:76px;box-shadow:var(--shadow)}
-  .countdown .num{font-family:'Orbitron',monospace;color:var(--red);font-size:2rem;line-height:1}
-  .countdown .lbl{color:#bbb;font-size:.65rem;text-transform:uppercase;letter-spacing:1px}
-  .countdown .sep{font-family:'Orbitron';color:var(--red);font-size:2rem;align-self:center}
+  /* ========== 2. SPECIAL PROMOTION BANNER ========== */
+  .urgency{text-align:center;padding:14px 0 8px}
+  .launch-banner{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;background:#FFF7ED;border:1.5px solid #FDBA74;border-radius:999px;padding:8px 22px;box-shadow:0 3px 10px rgba(232,116,12,.1)}
+  .launch-tag{background:linear-gradient(135deg, #EA580C 0%, #C2410C 100%);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.8px;padding:3px 12px;border-radius:999px;text-transform:uppercase}
+  .launch-text{color:#9A3412;font-size:.95rem;font-weight:600}
+  .launch-text strong{color:#C2410C;font-weight:800}
+  @media(max-width:760px){
+    .launch-banner{border-radius:12px;padding:10px 14px;gap:6px}
+    .launch-text{font-size:.88rem}
+  }
 
   /* ========== GRID (2 cols desktop / stacked mobile) ========== */
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
@@ -69,7 +71,7 @@
   .price-badge{background:#FFE5E5;color:var(--red);padding:3px 10px;border-radius:6px;font-weight:700;font-size:.8rem}
   .save{background:#fff3e6;color:var(--orange);display:inline-block;padding:3px 10px;border-radius:8px;font-weight:700;margin:6px 0}
   .instant{color:var(--green);font-weight:700;margin:8px 0 12px;font-size:.95rem}
-  .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;font-size:.82rem;color:var(--muted);margin-top:12px}
+  .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;font-size:.88rem;color:var(--muted);margin-top:12px;font-weight:600}
 
   /* ========== 4. SALES COPY + VIDEO ========== */
   .copy h2{color:var(--teal);font-size:clamp(1.4rem,4vw,1.8rem);line-height:1.25;margin-bottom:12px;font-weight:800}
@@ -90,25 +92,24 @@
   .recipe-card img{width:100%;height:180px;object-fit:cover;display:block}
   .recipe-card .card-caption{padding:12px 14px}
   .recipe-card .card-caption b{display:block;color:var(--text);font-family:'Poppins';font-size:.95rem;margin-bottom:3px}
-  .recipe-card .card-caption span{display:block;font-size:.8rem;color:var(--muted);line-height:1.35}
+  .recipe-card .card-caption span{display:block;font-size:.85rem;color:var(--muted);line-height:1.4}
   @media(max-width:760px){
     .inside{grid-template-columns:1fr 1fr;gap:12px}
     .recipe-card img{height:140px}
   }
 
-  /* ========== 5. GUARANTEE + CTA BAR ========== */
-  .cta-bar{display:flex;align-items:stretch;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg)}
-  .cta-left{flex:1.4;background:#111;color:#fff;padding:26px;position:relative;font-size:1.08rem;font-weight:600}
-  .cta-left .teal{color:var(--teal)}
-  .cta-left::after{ /* decorative arrow, desktop only */
-    content:"";position:absolute;right:-30px;top:0;bottom:0;width:30px;background:#111;
-    clip-path:polygon(0 0,100% 50%,0 100%);z-index:1}
-  .cta-right{flex:1;border:2px solid #e5e5e5;border-left:none;padding:26px 26px 26px 50px;display:flex;flex-direction:column;justify-content:center;text-align:center;background:#fff}
-  .cta-right small{color:var(--muted);margin-top:10px}
+  /* ========== 5. FINAL PURCHASE CTA BAR ========== */
+  .cta-bar{display:flex;align-items:center;background:linear-gradient(135deg, #1E293B 0%, #0F172A 100%);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid #334155;padding:32px 36px;gap:28px}
+  .cta-left{flex:1.3;color:#F8FAFC;font-size:1.15rem;font-weight:600;line-height:1.5}
+  .cta-left .teal{color:#38BDF8;font-weight:700}
+  .cta-left p{color:#94A3B8;font-size:.95rem;font-weight:400;margin-top:8px;line-height:1.5}
+  .cta-right{flex:1;background:#fff;border-radius:12px;padding:24px 20px;display:flex;flex-direction:column;justify-content:center;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+  .cta-price-tag{font-size:1.35rem;font-weight:800;color:var(--red);font-family:'Poppins',sans-serif;margin-bottom:12px}
+  .cta-right .btn{width:100%;margin-bottom:8px}
   @media(max-width:760px){
-    .cta-bar{flex-direction:column}
-    .cta-left::after{display:none}
-    .cta-right{border-left:2px solid #e5e5e5;border-top:none;padding:22px}
+    .cta-bar{flex-direction:column;padding:22px 18px;gap:18px;text-align:center}
+    .cta-left{font-size:1.05rem}
+    .cta-right{width:100%;padding:20px 16px}
   }
 
   /* ========== 6. FOOTER ========== */
@@ -145,8 +146,8 @@
     .guarantee-bullets{text-align:left;display:inline-block}
   }
 
-  .secure{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;font-size:.78rem;color:var(--muted);margin-top:10px}
-  .secure .card{border:1px solid #ddd;border-radius:4px;padding:1px 6px;font-weight:700;font-size:.7rem;background:#fff}
+  .secure{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 10px;font-size:.84rem;color:var(--muted);margin-top:12px;font-weight:600}
+  .secure .card{border:1px solid #cbd5e1;border-radius:4px;padding:2px 7px;font-weight:700;font-size:.74rem;background:#fff;color:#334155;box-shadow:0 1px 2px rgba(0,0,0,.04)}
   .tests{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
   .tcard{border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
   .tcard .stars{color:#f5a623}
@@ -183,17 +184,7 @@
     .bonus-img{max-width:220px}
   }
 
-  /* ========== SOCIAL PROOF POPUP ========== */
-  .proof{position:fixed;left:14px;bottom:14px;z-index:60;display:flex;align-items:center;gap:12px;
-         background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.22);padding:12px 16px;
-         max-width:330px;opacity:0;transform:translateY(16px);transition:opacity .4s,transform .4s;pointer-events:none}
-  .proof.show{opacity:1;transform:translateY(0)}
-  .proof .ava{flex:0 0 42px;height:42px;border-radius:50%;background:var(--teal);color:#fff;
-              display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:1.05rem}
-  .proof .txt{font-size:.85rem;line-height:1.35;color:var(--text)}
-  .proof .txt b{color:var(--teal)}
-  .proof .time{font-size:.72rem;color:var(--muted);margin-top:2px}
-  @media(max-width:760px){.proof{bottom:92px}}
+
 </style>
 <script>
 /* Meta Pixel + Conversions API: PageView only (purchases are confirmed by Hotmart).
@@ -232,15 +223,11 @@
   <div class="logo-text" id="logoText" style="display: block;"><span>🍴</span> Guide Shelf Recipes</div>
 </header>
 
-<!-- ===== 2. URGENCY BAR ===== -->
+<!-- ===== 2. SPECIAL PROMOTION BANNER ===== -->
 <section class="urgency container" id="urgency">
-  <h2>SPECIAL LAUNCH OFFER – ORDER NOW!</h2>
-  <div class="countdown" id="countdown" style="display: flex;">
-    <div class="unit"><div class="num" id="cdH">23</div><div class="lbl">Hours</div></div>
-    <div class="sep">:</div>
-    <div class="unit"><div class="num" id="cdM">00</div><div class="lbl">Minutes</div></div>
-    <div class="sep">:</div>
-    <div class="unit"><div class="num" id="cdS">00</div><div class="lbl">Seconds</div></div>
+  <div class="launch-banner">
+    <span class="launch-tag">Special Launch Offer</span>
+    <span class="launch-text">Get 1001 Homemade Sandwich Recipes + FREE Pizza Bonus for just <strong>$3.90</strong></span>
   </div>
 </section>
 
@@ -299,7 +286,7 @@
         ORDER NOW FOR ONLY $3.90 ➔
         <span class="btn-sub">100% Risk-Free 7-Day Money-Back Guarantee Included</span>
       </a>
-      <div class="secure"><span class="card">VISA</span><span class="card">Mastercard</span><span class="card">AMEX</span><span class="card">PayPal</span><span>🔒 256-bit Secure Checkout Processed by Hotmart</span></div>
+      <div class="secure"><span>🔒 256-Bit SSL Encrypted · Instant Digital Download</span></div>
     </div>
   </div>
 </section>
@@ -355,14 +342,14 @@
           <li>🍅 Easy 5-minute homemade sauces using basic pantry ingredients</li>
           <li>🧀 No special oven or baking stone required</li>
         </ul>
-        <div class="bonus-price"><s>$10.00</s> TODAY: 100% FREE</div>
-        <div class="bonus-value">Combined value: <s>$20.00</s> — Your price today: only <span data-config="priceToday">$3.90</span></div>
+        <div class="bonus-price"><s>Value: $10.00</s> <span style="color:var(--green);font-weight:800;margin-left:6px;">TODAY: 100% FREE</span></div>
+        <div class="bonus-value">Get both 1001 Sandwich Recipes + 25 Pizza Recipes for just <b>$3.90</b></div>
         <p class="bonus-note">⚡ Free bonus automatically included with your download today.</p>
         <a class="btn btn-green checkout" href="https://pay.hotmart.com/H107936016A?off=4zdyxr6s&amp;checkoutMode=10">
           YES! I WANT THE COOKBOOK + FREE BONUS ➔
           <span class="btn-sub">Instant Download of Both Ebooks for $3.90</span>
         </a>
-        <div class="secure"><span class="card">VISA</span><span class="card">Mastercard</span><span class="card">AMEX</span><span class="card">PayPal</span><span>🔒 256-bit Secure Checkout Processed by Hotmart</span></div>
+        <div class="secure"><span>🔒 Instant Digital Access · Free Bonus Included Automatically</span></div>
       </div>
     </div>
   </div>
@@ -399,21 +386,20 @@
   <div class="tests" id="testList"></div>
 </section>
 
-<!-- ===== 5. GUARANTEE + CTA BAR ===== -->
-<section class="container">
+<!-- ===== 5. FINAL PURCHASE CTA BAR ===== -->
+<section class="container" style="padding-top:10px">
   <div class="cta-bar">
     <div class="cta-left">
-      Today you can get <span class="teal" data-config="productName">1001 Delicious Homemade Sandwich Recipes</span> + <span class="teal">Free Pizza Bonus</span> with a 100%
-      <span data-config="guaranteeDays">7</span>-day money-back guarantee for only
-      <span data-config="priceToday">$3.90</span>! <span class="teal">Download now to read instantly!</span>
+      Ready to make the <span class="teal">crispiest, tastiest sandwiches</span> at home?
+      <p>Get the complete 1001 Recipes cookbook plus the free 25 Homemade Pizza Recipes bonus right now with our 7-day money-back guarantee.</p>
     </div>
     <div class="cta-right">
-      <a class="btn btn-red checkout" href="https://pay.hotmart.com/H107936016A?off=4zdyxr6s&amp;checkoutMode=10">
-        ADD TO CART - $3.90 ➔
-        <span class="btn-sub">Lifetime Access • Instant PDF</span>
+      <div class="cta-price-tag">ONLY $3.90 TODAY</div>
+      <a class="btn btn-green checkout" href="https://pay.hotmart.com/H107936016A?off=4zdyxr6s&amp;checkoutMode=10">
+        GET INSTANT ACCESS ➔
+        <span class="btn-sub">⚡ Direct PDF Download · One-Time Payment</span>
       </a>
-      <div class="secure"><span class="card">VISA</span><span class="card">Mastercard</span><span class="card">AMEX</span><span class="card">PayPal</span><span>🔒 Secure Checkout</span></div>
-      <small>Instant digital download – lifetime access on all devices</small>
+      <div class="secure"><span class="card">VISA</span><span class="card">Mastercard</span><span class="card">AMEX</span><span class="card">PayPal</span><span>🔒 Secure Checkout via Hotmart</span></div>
     </div>
   </div>
 </section>
@@ -448,14 +434,7 @@
   <p>We use the Meta Pixel and Meta Conversions API (Meta Platforms) to measure visits to this page for advertising measurement and to improve our ads on Facebook and Instagram. When you visit, Meta may receive your browser information, IP address, the page address and Meta cookies (_fbp/_fbc). We do not share your name or email with Meta. Visitors in the EU/EEA, UK and Switzerland are not tracked. You can opt out of ad personalization in your Facebook ad settings, block cookies in your browser, or contact us at digitalworldhubsupport@gmail.com. Payments are processed by Hotmart under its own privacy policy.</p>
 </div>
 
-<!-- ===== SOCIAL PROOF POPUP ===== -->
-<div class="proof" id="proof">
-  <div class="ava" id="proofAva"></div>
-  <div>
-    <div class="txt" id="proofTxt"></div>
-    <div class="time" id="proofTime"></div>
-  </div>
-</div>
+
 
 <!-- ===== STICKY MOBILE BUTTON ===== -->
 <div class="sticky"><a class="btn btn-green checkout" href="https://pay.hotmart.com/H107936016A?off=4zdyxr6s&amp;checkoutMode=10">GET INSTANT ACCESS</a></div>
@@ -471,7 +450,6 @@ const CONFIG = {
   regularPrice:  "",                  // e.g. "$29.99" — leave "" to hide
   checkoutLink:  "https://pay.hotmart.com/H107936016A?off=4zdyxr6s&checkoutMode=10",
   guaranteeDays: "7",
-  countdownHours: 23,                  // rolling countdown; restarts per visitor after it ends
   paymentProcessor: "Hotmart",
   supportEmail:  "digitalworldhubsupport@gmail.com",
   /* Real testimonials only. Format:
@@ -502,40 +480,8 @@ if (CONFIG.regularPrice && !isNaN(regular)) {
   document.getElementById("saveText").style.display = "none";
 }
 
-/* ========== Countdown (23 hours, automatically renews; never stays at zero) ========== */
-const duration = CONFIG.countdownHours * 3600 * 1000;
-let end = 0;
-try { end = Number(localStorage.getItem("gsr_offer_end")) || 0; } catch (_) {}
-function restartCountdown(now) {
-  end = now + duration;
-  try { localStorage.setItem("gsr_offer_end", String(end)); } catch (_) {}
-}
-const pad = n => String(n).padStart(2, "0");
-function tick() {
-  const now = Date.now();
-  if (!Number.isFinite(end) || end <= now || end > now + duration) restartCountdown(now);
-  const s = Math.max(1, Math.ceil((end - now) / 1000));
-  document.getElementById("countdown").style.display = "flex";
-  document.getElementById("cdH").textContent = pad(Math.floor(s / 3600));
-  document.getElementById("cdM").textContent = pad(Math.floor(s % 3600 / 60));
-  document.getElementById("cdS").textContent = pad(s % 60);
-}
-tick();
-setInterval(tick, 1000);
-document.addEventListener("visibilitychange", tick);
-window.addEventListener("pageshow", tick);
-
 /* ========== Product video ========== */
 /* The video plays with its own controls; nothing else needed here. */
-
-/* ========== D. Secure payment strip under every buy button ========== */
-document.querySelectorAll(".checkout").forEach(a => {
-  if (a.closest(".sticky")) return;
-  const d = document.createElement("div"); d.className = "secure";
-  d.innerHTML = '<span class="card">VISA</span><span class="card">Mastercard</span><span class="card">AMEX</span><span class="card">PayPal</span>' +
-    '<span>🔒 Secure checkout processed by ' + CONFIG.paymentProcessor + '</span>';
-  a.after(d);
-});
 
 /* ========== Testimonials ========== */
 if (CONFIG.testimonials.length) {
@@ -549,40 +495,6 @@ if (CONFIG.testimonials.length) {
   });
   document.getElementById("testimonials").style.display = "";
 }
-
-/* ========== Social proof: purchase notifications every 15s, no name ever repeats ========== */
-const BUYERS = [
-  ["Emily Carter","USA"],["Jason Miller","USA"],["Olivia Bennett","USA"],["Brandon Cole","USA"],
-  ["Madison Reed","USA"],["Tyler Brooks","USA"],["Amanda Foster","USA"],["Zachary Hayes","USA"],
-  ["Rachel Simmons","USA"],["Dustin Barrett","USA"],["Kimberly Wallace","USA"],["Ethan Doyle","USA"],
-  ["Vanessa Pierce","USA"],["Kyle Dawson","USA"],
-  ["Charlotte Hughes","UK"],["Oliver Whitmore","UK"],["Sophie Carrington","UK"],["James Ashford","UK"],
-  ["Freya Sinclair","UK"],["Harry Pemberton","UK"],["Amelia Thorne","UK"],["George Ellery","UK"],
-  ["Natalie Harding","UK"],
-  ["Liam Tremblay","Canada"],["Emma Mackenzie","Canada"],["Noah Lefevre","Canada"],["Ava Sutherland","Canada"],
-  ["William Dunbar","Canada"],["Grace Beaumont","Canada"],["Lucas Fontaine","Canada"],["Marcus Bell","Canada"],
-  ["Jack Sullivan","Australia"],["Mia Callahan","Australia"],["Lachlan Murray","Australia"],["Chloe Baxter","Australia"],
-  ["Riley Jensen","Australia"],["Zara Whitfield","Australia"],["Toby Kavanagh","Australia"],
-  ["Aoife Gallagher","Ireland"],["Ciaran Byrne","Ireland"],["Niamh Doran","Ireland"],["Ronan Fitzgerald","Ireland"],
-  ["Harper Whitiora","New Zealand"],["Cooper Ngaro","New Zealand"],["Willow Taite","New Zealand"],
-  ["Ruan Venter","South Africa"],["Chantelle Botha","South Africa"],["Thabo Nkosi","South Africa"],
-  ["Wei Jun Lim","Singapore"],["Priya Raman","Singapore"]
-];
-let buyerIdx = 0;
-const proofEl = document.getElementById("proof");
-function showProof() {
-  if (buyerIdx >= BUYERS.length) return; // list exhausted: stop, never repeat a name
-  const [name, country] = BUYERS[buyerIdx++];
-  document.getElementById("proofAva").textContent = name.split(" ").map(w => w[0]).slice(0, 2).join("");
-  document.getElementById("proofTxt").innerHTML = "";
-  const b = document.createElement("b"); b.textContent = name + " (" + country + ")";
-  document.getElementById("proofTxt").append(b, " just purchased " + CONFIG.productName);
-  document.getElementById("proofTime").textContent = "a few seconds ago · verified order ✔";
-  proofEl.classList.add("show");
-  setTimeout(() => proofEl.classList.remove("show"), 6000);
-}
-setTimeout(showProof, 4000);        // first notification shortly after load
-setInterval(showProof, 15000);      // then one every 15 seconds
 
 /* ========== Contact ========== */
 const em = document.getElementById("supportEmail");
