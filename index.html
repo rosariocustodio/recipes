@@ -164,7 +164,7 @@
   @media(max-width:760px){.proof{bottom:92px}}
 </style>
 <script>
-/* Meta Pixel + Conversions API: PageView only (purchases are confirmed by Hotmart).
+/* Meta Pixel + Conversions API: PageView only (purchases are confirmed by checkout gateway).
    Not loaded for visitors in regions that require cookie consent (EU/EEA, UK, CH) or unknown regions. */
 (function(){
   var PIXEL_ID='2237224530389453';
@@ -340,7 +340,7 @@
 </footer>
 <div id="privacy" class="container" style="display:none;font-size:13px;color:#555;max-width:760px;margin:0 auto 40px">
   <h3>Privacy Policy</h3>
-  <p>We use the Meta Pixel and Meta Conversions API (Meta Platforms) to measure visits to this page for advertising measurement and to improve our ads on Facebook and Instagram. When you visit, Meta may receive your browser information, IP address, the page address and Meta cookies (_fbp/_fbc). We do not share your name or email with Meta. Visitors in the EU/EEA, UK and Switzerland are not tracked. You can opt out of ad personalization in your Facebook ad settings, block cookies in your browser, or contact us at digitalworldhubsupport@gmail.com. We process personal information in compliance with the Protection of Personal Information Act (POPIA). Payments are processed by Hotmart under its own privacy policy.</p>
+  <p>We use the Meta Pixel and Meta Conversions API (Meta Platforms) to measure visits to this page for advertising measurement and to improve our ads on Facebook and Instagram. When you visit, Meta may receive your browser information, IP address, the page address and Meta cookies (_fbp/_fbc). We do not share your name or email with Meta. Visitors in the EU/EEA, UK and Switzerland are not tracked. You can opt out of ad personalization in your Facebook ad settings, block cookies in your browser, or contact us at digitalworldhubsupport@gmail.com. We process personal information in compliance with the Protection of Personal Information Act (POPIA). Payments are processed securely under our payment gateway's privacy policy.</p>
 </div>
 
 <!-- ===== SOCIAL PROOF POPUP ===== -->
@@ -367,7 +367,7 @@ const CONFIG = {
   checkoutLink:  "https://pay.hotmart.com/H107936016A?off=4zdyxr6s&checkoutMode=10",
   guaranteeDays: "7",
   countdownHours: 23,                  // rolling countdown; restarts per visitor after it ends
-  paymentProcessor: "Hotmart",
+  paymentProcessor: "Secure Gateway",
   supportEmail:  "digitalworldhubsupport@gmail.com",
   /* Real testimonials only. Format:
      { name: "Mary", country: "USA", review: "Loved it!" }
@@ -427,8 +427,8 @@ window.addEventListener("pageshow", tick);
 document.querySelectorAll(".checkout").forEach(a => {
   if (a.closest(".sticky")) return;
   const d = document.createElement("div"); d.className = "secure";
-  d.innerHTML = '<span class="card">VISA</span><span class="card">Mastercard</span><span class="card">Ozow EFT</span><span class="card">Capitec Pay</span>' +
-    '<span>🔒 Secure checkout via ' + CONFIG.paymentProcessor + ' (ZAR)</span>';
+  d.innerHTML = '<span class="card">VISA</span><span class="card">Mastercard</span><span class="card">Debit & Credit</span><span class="card">Instant EFT</span>' +
+    '<span>🔒 100% Guaranteed Safe Checkout · Pay in ZAR (Rands)</span>';
   a.after(d);
 });
 
