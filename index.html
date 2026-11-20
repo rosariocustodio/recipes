@@ -237,13 +237,13 @@
   <div class="grid">
     <div class="copy">
       <h2>Tired of Eating the Same Boring Sandwich Every Day?</h2>
-      <p>Imagine opening your lunchbox — or setting the table — and seeing faces light up. Golden grilled cheese, crispy paninis, creamy chicken salad, loaded hoagies and colorful roll-ups… all made at home, fresher and tastier than anything from a deli.</p>
+      <p>Imagine opening your lunchbox — or setting the table — and seeing faces light up. Golden grilled cheese, crispy paninis, authentic braai broodjies, creamy chicken salad, loaded subs and colorful roll-ups… all made at home, fresher and tastier than anything from a cafe or takeaway.</p>
       <p>With these easy step-by-step recipes and simple supermarket ingredients, you'll make delicious sandwiches the whole family will love — no fancy equipment, no cooking skills required.</p>
       <h3>What You Get:</h3>
       <ul>
         <li>✅ <span data-config="recipes"></span> delicious step-by-step sandwich recipes</li>
-        <li>🧀 Grilled cheese, paninis, hoagies, wraps, chicken salad &amp; more</li>
-        <li>🛒 Simple ingredients you can find at any supermarket</li>
+        <li>🧀 Crispy toasties, braaibroodjies, subs, wraps, chicken salad &amp; more</li>
+        <li>🛒 Simple ingredients you can find at any local supermarket</li>
         <li>⚡ Instant download right after purchase</li>
         <li>♾️ Lifetime access on your phone, tablet or computer</li>
       </ul>
@@ -263,9 +263,9 @@
     <div class="bonus-grid">
       <div class="bonus-img"><img src="bonus-book.png" alt="25 Homemade Pizza Recipes – Easy for Beginners (FREE bonus ebook)"></div>
       <div class="bonus-body">
-        <p>25 easy, foolproof pizza recipes anyone can make at home. No special oven needed.</p>
-        <div class="bonus-price"><s>$5</s> TODAY: FREE</div>
-        <div class="bonus-value">Total value: <s>$10</s> — Your price today: only <span data-config="priceToday"></span></div>
+        <p>25 easy, foolproof pizza recipes anyone can make at home — including crispy braai pizza styles! No special oven needed.</p>
+        <div class="bonus-price"><s>R120</s> TODAY: FREE</div>
+        <div class="bonus-value">Total value: <s>R319</s> — Your price today: only <span data-config="priceToday"></span></div>
         <p class="bonus-note">Only available on this page with your purchase today.</p>
         <a class="btn btn-green checkout" href="#">YES! I WANT IT + FREE BONUS</a>
       </div>
@@ -315,6 +315,7 @@
 <!-- ===== F. FAQ ===== -->
 <section class="container faq">
   <h2 class="sec-title">Frequently Asked Questions</h2>
+  <details><summary>Can I pay in South African Rands (ZAR)?</summary><p>Yes! All orders are securely processed in Rands (ZAR) via card or Instant EFT.</p></details>
   <details><summary>Is this a physical book?</summary><p>No, it's a digital PDF you download instantly.</p></details>
   <details><summary>How do I receive it?</summary><p>Right after payment you'll get an email with your download link.</p></details>
   <details><summary>Can I read it on my phone?</summary><p>Yes, it works on any phone, tablet or computer.</p></details>
@@ -339,7 +340,7 @@
 </footer>
 <div id="privacy" class="container" style="display:none;font-size:13px;color:#555;max-width:760px;margin:0 auto 40px">
   <h3>Privacy Policy</h3>
-  <p>We use the Meta Pixel and Meta Conversions API (Meta Platforms) to measure visits to this page for advertising measurement and to improve our ads on Facebook and Instagram. When you visit, Meta may receive your browser information, IP address, the page address and Meta cookies (_fbp/_fbc). We do not share your name or email with Meta. Visitors in the EU/EEA, UK and Switzerland are not tracked. You can opt out of ad personalization in your Facebook ad settings, block cookies in your browser, or contact us at digitalworldhubsupport@gmail.com. Payments are processed by Hotmart under its own privacy policy.</p>
+  <p>We use the Meta Pixel and Meta Conversions API (Meta Platforms) to measure visits to this page for advertising measurement and to improve our ads on Facebook and Instagram. When you visit, Meta may receive your browser information, IP address, the page address and Meta cookies (_fbp/_fbc). We do not share your name or email with Meta. Visitors in the EU/EEA, UK and Switzerland are not tracked. You can opt out of ad personalization in your Facebook ad settings, block cookies in your browser, or contact us at digitalworldhubsupport@gmail.com. We process personal information in compliance with the Protection of Personal Information Act (POPIA). Payments are processed by Hotmart under its own privacy policy.</p>
 </div>
 
 <!-- ===== SOCIAL PROOF POPUP ===== -->
@@ -361,8 +362,8 @@
 const CONFIG = {
   productName:   "1001 Delicious Homemade Sandwich Recipes",
   recipes:       "1001",              // number of recipes
-  priceToday:    "$3.90",             // offer price today
-  regularPrice:  "",                  // e.g. "$29.99" — leave "" to hide
+  priceToday:    "R79",               // offer price today in South African Rand (ZAR)
+  regularPrice:  "R199",              // regular price in ZAR
   checkoutLink:  "https://pay.hotmart.com/H107936016A?off=4zdyxr6s&checkoutMode=10",
   guaranteeDays: "7",
   countdownHours: 23,                  // rolling countdown; restarts per visitor after it ends
@@ -389,7 +390,7 @@ if (CONFIG.regularPrice && !isNaN(regular)) {
   if (!isNaN(today) && regular > today) {
     const symbol = (CONFIG.priceToday.match(/^[^0-9]*/) || [""])[0];
     document.getElementById("saveText").textContent =
-      `You save ${symbol}${(regular - today).toFixed(2)} (${Math.round((1 - today / regular) * 100)}% OFF)`;
+      `You save ${symbol}${Math.round(regular - today)} (${Math.round((1 - today / regular) * 100)}% OFF)`;
   } else document.getElementById("saveText").style.display = "none";
 } else {
   document.getElementById("oldPrice").style.display = "none";
@@ -426,8 +427,8 @@ window.addEventListener("pageshow", tick);
 document.querySelectorAll(".checkout").forEach(a => {
   if (a.closest(".sticky")) return;
   const d = document.createElement("div"); d.className = "secure";
-  d.innerHTML = '<span class="card">VISA</span><span class="card">Mastercard</span><span class="card">AMEX</span><span class="card">PayPal</span>' +
-    '<span>🔒 Secure checkout processed by ' + CONFIG.paymentProcessor + '</span>';
+  d.innerHTML = '<span class="card">VISA</span><span class="card">Mastercard</span><span class="card">Ozow EFT</span><span class="card">Capitec Pay</span>' +
+    '<span>🔒 Secure checkout via ' + CONFIG.paymentProcessor + ' (ZAR)</span>';
   a.after(d);
 });
 
@@ -446,21 +447,26 @@ if (CONFIG.testimonials.length) {
 
 /* ========== Social proof: purchase notifications every 15s, no name ever repeats ========== */
 const BUYERS = [
-  ["Emily Carter","USA"],["Jason Miller","USA"],["Olivia Bennett","USA"],["Brandon Cole","USA"],
-  ["Madison Reed","USA"],["Tyler Brooks","USA"],["Amanda Foster","USA"],["Zachary Hayes","USA"],
-  ["Rachel Simmons","USA"],["Dustin Barrett","USA"],["Kimberly Wallace","USA"],["Ethan Doyle","USA"],
-  ["Vanessa Pierce","USA"],["Kyle Dawson","USA"],
-  ["Charlotte Hughes","UK"],["Oliver Whitmore","UK"],["Sophie Carrington","UK"],["James Ashford","UK"],
-  ["Freya Sinclair","UK"],["Harry Pemberton","UK"],["Amelia Thorne","UK"],["George Ellery","UK"],
-  ["Natalie Harding","UK"],
-  ["Liam Tremblay","Canada"],["Emma Mackenzie","Canada"],["Noah Lefevre","Canada"],["Ava Sutherland","Canada"],
-  ["William Dunbar","Canada"],["Grace Beaumont","Canada"],["Lucas Fontaine","Canada"],["Marcus Bell","Canada"],
-  ["Jack Sullivan","Australia"],["Mia Callahan","Australia"],["Lachlan Murray","Australia"],["Chloe Baxter","Australia"],
-  ["Riley Jensen","Australia"],["Zara Whitfield","Australia"],["Toby Kavanagh","Australia"],
-  ["Aoife Gallagher","Ireland"],["Ciaran Byrne","Ireland"],["Niamh Doran","Ireland"],["Ronan Fitzgerald","Ireland"],
-  ["Harper Whitiora","New Zealand"],["Cooper Ngaro","New Zealand"],["Willow Taite","New Zealand"],
-  ["Ruan Venter","South Africa"],["Chantelle Botha","South Africa"],["Thabo Nkosi","South Africa"],
-  ["Wei Jun Lim","Singapore"],["Priya Raman","Singapore"]
+  ["Johan van der Merwe", "Cape Town"],
+  ["Thabo Mokoena", "Johannesburg"],
+  ["Anika Botha", "Pretoria"],
+  ["Sipho Ndlovu", "Durban"],
+  ["Liam Naidoo", "Durban"],
+  ["Zanele Dlamini", "Soweto"],
+  ["Pieter Kruger", "Bloemfontein"],
+  ["Nandi Khumalo", "Johannesburg"],
+  ["Willem Steyn", "Stellenbosch"],
+  ["Lerato Molefe", "Pretoria"],
+  ["Chloe Jacobs", "Cape Town"],
+  ["Tshepo Sithole", "Centurion"],
+  ["Carel Coetzee", "Gqeberha"],
+  ["Nomvula Radebe", "Sandton"],
+  ["Deon Nel", "Pietermaritzburg"],
+  ["Ayanda Mthembu", "Durban"],
+  ["Francois Venter", "Paarl"],
+  ["Bokamoso Zulu", "Midrand"],
+  ["Stefan Joubert", "George"],
+  ["Precious Moyo", "Johannesburg"]
 ];
 let buyerIdx = 0;
 const proofEl = document.getElementById("proof");
